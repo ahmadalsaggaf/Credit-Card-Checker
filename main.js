@@ -24,6 +24,25 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 
 
 // Add your functions below:
+const validateCred = (arr) => {
+    total = 0;
+//  length - 1 because we want to skip the last digit ;
+    for( let i = arr.length - 1; i >= 0; i-- ){
+        let currValue = arr[i];
+        // multiple the odd digits by 2
+        if ((arr.length - 1 - i) % 2 === 1) {
+            currValue *= 2;
+        // subtract 9 form numbers bigger than 9
+            if (currValue > 9) {
+            currValue -= 9;
+            }
+        }
+        total += currValue;
+
+    }
+    return (total % 10 === 0) ?  console.log(`You card number ${arr} is valid`) : console.log(`Sorry! You card number ${arr} is invalid`);
+};
+
 
 
 
