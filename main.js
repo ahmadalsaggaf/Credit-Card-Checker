@@ -40,14 +40,26 @@ const validateCred = (arr) => {
         total += currValue;
 
     }
-    return (total % 10 === 0) ?  console.log(`You card number ${arr} is valid`) : console.log(`Sorry! You card number ${arr} is invalid`);
+    return (total % 10 === 0) ?  true : false;
 };
 
 
 
+// The role of findInvalidCards() is to check through the nested array for which numbers are invalid, and return another nested array of invalid cards.
 
+const findInvalidCards = (nArr) => {
+    const invaildCards = [];
 
+    for( let card in nArr){
 
+        if (!validateCred(nArr[card])) {
+            invaildCards.push(nArr[card])
+        }
+    }
+
+    return invaildCards;
+
+}
 
 
 
